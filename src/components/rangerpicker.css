@@ -12,3 +12,58 @@
     background-color: #fff;
     border: 1px solid rgb(114, 112, 112);
 }
+
+.rangepicker_monthtitle {
+    height: 64px;
+    line-height: 64px;
+    text-align: center;
+    background-color: #455399;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.rangepicker_days {
+    height: 30px;
+    color: #b7c1cd;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.rangepicker_numbers {
+    display: flex;
+    flex-wrap: wrap;
+    color: #2b2e49;
+    line-height: 48px;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.rangepicker_day {
+    width: 14.28%;
+}
+
+.rangepicker_out {
+    opacity: 0.5; 
+}
+
+.rangepicker_range {
+    background-color: #00c6ae;
+    color: #fff;
+}
+
+.rangepicker_range-start {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.rangepicker_range-end {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
