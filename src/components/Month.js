@@ -5,6 +5,7 @@ export default class Month {
         this.start = new Date(this.year, this.month)
     }
 
+
     getDays () {
         let days = []
         let dayOfWeek = this.start.getDay() - 1
@@ -12,7 +13,7 @@ export default class Month {
         if (dayOfWeek > 0) {
             for (let i = dayOfWeek; i > 0; i--) {
                 let date = this.clone(this.start)
-                date.setDate(i * -1 +1)
+                date.setDate(i * -1 + 1)
                 days.push(date)
             }
         }
