@@ -26,7 +26,7 @@ export default class Month {
             days.push(date)
         }
         dayOfWeek = end.getDay() - 1
-        if (dayOfWeek === -1) { dayOfWeek = 6}
+        if (dayOfWeek === -1) { dayOfWeek = 6 }
         if (dayOfWeek < 6) {
             for (let i = 0; i < (6 - dayOfWeek); i++) {
                 let date = this.clone(end)
@@ -40,6 +40,7 @@ export default class Month {
     getName () {
         return this.start.toLocaleDateString('fr-fr', {month: 'long'})
     }
+
 
     contains (date) {
         return date.getMonth() === this.month

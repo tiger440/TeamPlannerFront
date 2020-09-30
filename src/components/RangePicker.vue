@@ -18,8 +18,9 @@
                @mousedown="startDrag(day)"
                @mouseover="overDay(day)"
                @dblclick="removeRange(day)"
-               v-for="day in month.getDays()" 
-               :key="day" :class="classForDay(day, month, newRange)">{{ day.getDate() }}</div>
+               v-for="day in month.getDays()"
+               :key="day" :class="classForDay(day, month, newRange)">{{ day.getDate() }}
+          </div>
           </div>
       </div>
   </div>
@@ -33,7 +34,7 @@ export default {
   props: {
     year: Number,
     value: Array
-  }, 
+  },
   data () {
     return {
         months: [],
