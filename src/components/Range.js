@@ -54,6 +54,4 @@ export default class Range {
     isEnd (date) {
         return date.toDateString() === this.end.toDateString()
     }
-
-
 }

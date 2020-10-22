@@ -14,13 +14,13 @@
             <div>Dim</div>
           </div>
           <div class="rangepicker_numbers">
-          <div class="rangepicker_day"
-               @mousedown="startDrag(day)"
-               @mouseover="overDay(day)"
-               @dblclick="removeRange(day)"
-               v-for="day in month.getDays()"
-               :key="day" :class="classForDay(day, month, newRange)">{{ day.getDate() }}
-          </div>
+            <div class="rangepicker_day"
+                 @mousedown="startDrag(day)"
+                 @mouseover="overDay(day)"
+                 @dblclick="removeRange(day)"
+                 v-for="day in month.getDays()"
+                 :key="day" :class="classForDay(day, month, newRange)">{{ day.getDate() }}
+            </div>
           </div>
       </div>
   </div>
@@ -109,4 +109,4 @@ export default {
 }
 </script>
 
-<style src="./rangerpicker.css" lang="css"></style> 
+<style src="./rangerpicker.css" lang="css"></style>

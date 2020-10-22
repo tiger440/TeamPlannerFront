@@ -1,13 +1,11 @@
 <template>
   <div>
       <range-picker :year="2017" v-model="ranges"/>
-      <day :day="1500076800000"></day>
   </div>
 </template>
 
 <script>
 import RangePicker from '../components/RangePicker'
-import Day from '../components/Day'
 export default {
     name: 'planning',
     data () {
@@ -17,7 +15,6 @@ export default {
     },
     components: {
         RangePicker,
-        Day
     }
 }
 </script>

@@ -55,6 +55,7 @@ export default class Month {
         for (let i = 0; i < 12; i++) {
             months.push(new Month(year, i))
         }
+        console.log(months)
         return months
     }
 }
