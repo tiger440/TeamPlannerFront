@@ -109,4 +109,4 @@ export default {
 }
 </script>
 
-<style src="./rangerpicker.css" lang="css"></style>
+<style scoped src="./rangerpicker.css" lang="css"></style>

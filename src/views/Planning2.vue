@@ -1,6 +1,6 @@
 <template>
   <div>
-    <date-picker :year="2017" :month="'2'"/>
+    <date-picker :year="getlocalYear()" :value="getLocalMonth()"/>
   </div>
 </template>
 
@@ -10,6 +10,16 @@ export default {
     name: 'planning2',
     components: {
         DatePicker
+    },
+    methods: {
+      getLocalMonth () {
+        const nowMonth = new Date().getMonth()
+        return nowMonth
+      },
+      getlocalYear () {
+        const nowYear = new Date().getFullYear()
+        return nowYear
+      }
     }
 }
 </script>
