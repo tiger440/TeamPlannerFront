@@ -53,4 +53,6 @@ export default {
 }
 </script>
 
-<style src="./rangerpicker2.css" lang="css"></style>
+<style scoped>
+@import url("./rangerpicker2.css");
+</style>

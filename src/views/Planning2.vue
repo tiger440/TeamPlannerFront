@@ -1,15 +1,18 @@
 <template>
   <div>
     <date-picker :year="getlocalYear()" :value="getLocalMonth()"/>
+    <day-schedule></day-schedule>
   </div>
 </template>
 
 <script>
 import DatePicker from '../components/DatePicker'
+import DaySchedule from '../components/DaySchedule'
 export default {
     name: 'planning2',
     components: {
-        DatePicker
+        DatePicker,
+        DaySchedule
     },
     methods: {
       getLocalMonth () {
@@ -20,10 +23,8 @@ export default {
         const nowYear = new Date().getFullYear()
         return nowYear
       }
-    }
+    },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
