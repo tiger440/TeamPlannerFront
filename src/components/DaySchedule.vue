@@ -17,7 +17,7 @@ export default {
     }
   },
   methods: {
-
+    
   },
   provide: {
     schedule: [Day]
