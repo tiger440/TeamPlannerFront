@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/planning">Planning</router-link>
-      <router-link to="/planning2">Planning2</router-link>
     </div>
     <router-view/>
   </div>
