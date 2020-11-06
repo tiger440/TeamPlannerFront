@@ -1,17 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Accueil from '../views/Accueil.vue'
 import Planning from '../views/Planning.vue'
 import Planning2 from '../views/Planning2.vue'
 import DayScheduler from '../components/DaySchedule.vue'
+import Register from '../views/Register.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/accueil',
+    name: 'accueil',
+    component: Accueil
   },
   {
     path: '/planning',
@@ -27,6 +29,16 @@ const routes = [
     path: '/dayscheduler/:id',
     name: 'dayscheduler',
     component: DayScheduler
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {
     path: '/about',

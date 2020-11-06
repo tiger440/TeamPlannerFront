@@ -13,6 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: #fffaf6;
 }
 
 #nav {
@@ -27,4 +28,6 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 </style>
