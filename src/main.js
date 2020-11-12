@@ -4,14 +4,16 @@ import './registerServiceWorker'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import { SchedulePlugin} from '@syncfusion/ej2-vue-schedule'
+import { SchedulePlugin } from '@syncfusion/ej2-vue-schedule'
 
 Vue.use(SchedulePlugin)
 Vue.use(VueAxios, axios)
 
+Vue.prototype.$apiurl = "https://teamplanner.fr:3000/"
+
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app')

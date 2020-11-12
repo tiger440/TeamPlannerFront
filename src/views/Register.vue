@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         doregister: function () {
-            this.axios.post("http://localhost:3000/user/register", {
+            this.axios.post(this.$apiurl + "user/register", {
                 nom: this.nom,
                 prenom: this.prenom,
                 poste: this.poste,

@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="home-navbar">
+      <div class="navbar">
           <a href="">Adopter notre solution</a>
           <p>
               <a href="#">Créer un compte</a>/<a href="#">Me connecter</a>
