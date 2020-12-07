@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 import Accueil from '../views/Accueil.vue'
 import Planning from '../views/Planning.vue'
 import Planning2 from '../views/Planning2.vue'
-import DayScheduler from '../components/DaySchedule.vue'
 import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
+import adminlogin from '../components/admin/adminlogin.vue'
+import adminhome from '../components/admin/adminhome.vue'
+import team from '../components/Team.vue'
 
 Vue.use(VueRouter)
 
@@ -15,7 +17,7 @@ const routes = [{
         component: Accueil
     },
     {
-        path: '/planning',
+        path: '/planning/:id',
         name: 'planning',
         component: Planning
     },
@@ -23,11 +25,6 @@ const routes = [{
         path: '/planning2',
         name: 'planning2',
         component: Planning2
-    },
-    {
-        path: '/dayscheduler/:id',
-        name: 'dayscheduler',
-        component: DayScheduler
     },
     {
         path: '/register',
@@ -47,6 +44,21 @@ const routes = [{
         // which is lazy-loaded when the route is visited.
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/About.vue')
+    },
+    {
+        path: "/admin/login",
+        name: "adminlogin",
+        component: adminlogin
+    },
+    {
+        path: "/admin/home",
+        name: "adminhome",
+        component: adminhome
+    },
+    {
+        path: "/team/:id",
+        name: "team",
+        component: team
     }
 ]
 

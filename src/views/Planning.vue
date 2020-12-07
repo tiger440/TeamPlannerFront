@@ -1,23 +1,34 @@
 <template>
   <div>
-      <range-picker :year="2017" v-model="ranges"/>
+      <day-schedule :scheduleData="scheduleData" :users="users" class="1schedule"/>
   </div>
 </template>
 
 <script>
-import RangePicker from '../components/RangePicker'
+import DaySchedule from '../components/DaySchedule'
 export default {
     name: 'planning',
     data () {
         return {
-            ranges: [ [1483484400000, 1484694000000], [1487199600000, 1493337600000], [1496872800000, 1497484800000] ]
+            users: {},
         }
     },
     components: {
-        RangePicker,
+        DaySchedule,
+    },
+    created() {
+      this.axios
+        .get('http://localhost:3000/team/displayTeam/' + this.$route.params.id )
+        .then((res) => {
+          this.users = res
+        })
+        .catch((err) => {
+          alert(err);
+        });
     }
 }
 </script>
+
 
 <style>
 

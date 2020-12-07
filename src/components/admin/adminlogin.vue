@@ -1,25 +1,25 @@
 <template>
   <div>
-    <div class="wrap clearfix">
-      <div class="container clearfix">
-          <h1 class="title">Sign In</h1>
-          <form class="sign-up-form" @submit.prevent="dologin">
-              <input class="sign-up-input" type="email" name="email" id="email" v-model="email" placeholder="email">
-              <input class="sign-up-input" type="password" name="password" id="password" v-model="password" placeholder="mot de passe">
-              <button class="sign-up-input" id="register-button" type="submit">Login</button>
-          </form>
-          <div class="left-part">
-              <img class="drawing" src="..\assets\teamwork.png" alt="">
-              <a class="sign-in-link" href="#">créer un compte</a>
-          </div>
+      <div class="wrap clearfix">
+        <div class="container clearfix">
+            <h1 class="title">Sign In</h1>
+            <form class="sign-up-form" @submit.prevent="dologin">
+                <input class="sign-up-input" type="email" name="email" id="email" v-model="email" placeholder="email">
+                <input class="sign-up-input" type="password" name="password" id="password" v-model="password" placeholder="mot de passe">
+                <button class="sign-up-input" id="register-button" type="submit">Login</button>
+            </form>
+            <div class="left-part">
+                <img class="drawing" src="" alt="">
+                <a class="sign-in-link" href="#">créer un compte</a>
+            </div>
+        </div>
+        <img class="buildings clearfix" src="" alt="">
       </div>
-      <img class="buildings clearfix" src="..\assets\buildings.png" alt="">
     </div>
-  </div>
-  
 </template>
 
 <script>
+import jwt from 'vue-jwt-decode'
 export default {
     name: "login",
     data() {
@@ -30,21 +30,37 @@ export default {
     },
     methods: {
         dologin: function () {
-            this.axios.post(this.$apiurl + "user/login", {
-                email: this.email,
-                password: this.password,
-            })
-            .then((res) => {
-                if (res.data.token) {
-                    localStorage.setItem("token", res.data.token)
-                    this.$router.push({name: 'home'})
-                } else {
-                    console.log("not connected")
-                }
-            })
-            .catch((err) => {
-                console.log(err)
-            })
+            this.axios
+                .post("http://localhost:3000/admin/login", {
+                    email: this.email,
+                    password: this.password
+                })
+                .then((res) => {
+                    if (res.data.auth) {
+                        alert(res.data.auth);
+                        localStorage.setItem("auth", res.data.auth);
+                        localStorage.setItem("token", res.data.token);
+                        var admin = jwt.decode(res.data.token);
+                        console.log(admin);
+                        if(admin.role == "admin"){
+                            this.$router.push({ path: "/admin/home"});
+                        } else {
+                            this.$router.push({ path: "/home" });
+                            window.location.reload();
+                        }
+                        /* this.$router.push({ name: "profil" });
+                        window.location.reload(); */
+                    } else {
+                        alert(res.data.auth);
+                        /* this.$router.push({
+                            name: "register",
+                            params: { msg: "non connecté" },
+                        }); */
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
     }
 }
@@ -58,14 +74,14 @@ export default {
 }
 
 .wrap {
-    position: relative;
+    background-color: #252c38 ;
     padding: 40px 0;
     height: auto;
     display: flex;
     justify-content: center;
     align-content: center;
     font-family: 'Montserrat', sans-serif;
-    color: #252b37;
+    color: #fffaf6;
     overflow: hidden;
 }
 
@@ -80,7 +96,7 @@ export default {
     width: 70%;
     height: auto;
     box-shadow: 0 0 7px 0 #c2c4c7;
-    background-color: #fffaf6;
+    background-color: #252c38;
     padding: 15px 0 70px 0;
     z-index: 3;
 }
@@ -105,33 +121,33 @@ export default {
     height: 25px;
     padding: 0 10px;
     margin: 30px auto;
-    border: #252c38 solid 2px;
+    border: #fffaf6 solid 2px;
     border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
 }
 
 .container .sign-up-form .sign-up-input:focus {
     transition: ease-in-out 0.3s;
-    border: #252c38 solid 2px;
-    color: #fffaf6;
-    background-color: #252c38;
+    border: #fffaf6 solid 2px;
+    color: #252c38;
+    background-color: #fffaf6;
 }
 
 #register-button {
     width: 90px;
     height: 40px;
     border: none;
-    background-color: #252c38;
+    background-color: #fffaf6;
     border-radius: 20px;
     margin: 0 auto;
-    color: #fffaf6;
+    color: #252c38;
     font-family: 'Montserrat', sans-serif;
 }
 
 #register-button:hover {
-    background-color: #fffaf6;
-    color: #252c38;
-    border: #252c38 solid 3px;
+    background-color: #252c38;
+    color: #fffaf6;
+    border: #fffaf6 solid 3px;
     transition: ease-in-out 0.5s;
 }
 
@@ -152,7 +168,7 @@ export default {
 }
 
 .container .left-part .sign-in-link {
-    color: #252c38;
+    color: #fffaf6;
     margin-top: 40px;
     margin-bottom: 10px;
     padding-top: 20px;
