@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div v-for="user in users" :key="user.id">
+    <div>
       {{ eventSettings }}
+      {{ this.scheduleData }}
       <ejs-schedule
         class="schedule"
         :selectedDate="selectedDate"
@@ -16,31 +17,24 @@
 import { Day, TimelineViews } from "@syncfusion/ej2-vue-schedule";
 /* import { scheduleData } from './datasource.js' */
 
-let scheduleData = [];
-
 export default {
   name: "dayschedule",
-  props: ["users"],
+  props: ["users", "tasks"],
   data() {
     return {
       showHeaderBar: false,
       eventSettings: {
-        dataSource: scheduleData,
+        dataSource: this.scheduleData,
       },
+      scheduleData: [],
       selectedDate: new Date(2020, 10, 27),
     };
   },
   created() {
-    this.axios
-      .get("http://localhost:3000/task/findUserTasks/" + this.$route.params.id)
-      .then((res) => {
-        for (let i = 0; i < res.data.length; ++i) {
-          scheduleData.push(res.data[i]);
-        }
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    for (let i = 0; i < this.tasks.length; ++i) {
+      this.scheduleData.push(this.tasks[i]);
+    }
+    console.log({ scheduleData: this.scheduleData });
   },
   provide: {
     schedule: [Day, TimelineViews],
