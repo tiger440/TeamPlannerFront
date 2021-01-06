@@ -4,7 +4,6 @@ import NotFound from "@/pages/NotFoundPage.vue";
 
 import Accueil from '../views/Accueil.vue'
 import Planning from '../views/Planning.vue'
-import Planning2 from '../views/Planning2.vue'
 import Register from '../views/Register.vue'
 import Login from '../views/Login.vue'
 import adminlogin from '../components/admin/adminlogin.vue'
@@ -32,11 +31,6 @@ const routes = [{
         path: '/',
         name: 'accueil',
         component: Accueil
-    },
-    {
-        path: '/planning2',
-        name: 'planning2',
-        component: Planning2
     },
     {
         path: '/register',

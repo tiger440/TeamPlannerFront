@@ -27,6 +27,7 @@ export default {
       .get("http://localhost:3000/task/findTeamTasks/" + this.$route.params.id)
       .then((res) => {
         this.users = res.data.users;
+        console.log(this.users.tasks);
       })
       .catch((err) => {
         alert(err);

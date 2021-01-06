@@ -2,7 +2,6 @@
   <div>
     <div>
       {{ eventSettings }}
-      {{ this.scheduleData }}
       <ejs-schedule
         class="schedule"
         :selectedDate="selectedDate"
@@ -15,6 +14,7 @@
 
 <script>
 import { Day, TimelineViews } from "@syncfusion/ej2-vue-schedule";
+import { DataManager, Query } from "@syncfusion/ej2-data";
 /* import { scheduleData } from './datasource.js' */
 
 export default {
@@ -24,17 +24,10 @@ export default {
     return {
       showHeaderBar: false,
       eventSettings: {
-        dataSource: this.scheduleData,
+        dataSource: new DataManager(this.tasks).executeLocal(new Query().take(8)),
       },
-      scheduleData: [],
       selectedDate: new Date(2020, 10, 27),
     };
-  },
-  created() {
-    for (let i = 0; i < this.tasks.length; ++i) {
-      this.scheduleData.push(this.tasks[i]);
-    }
-    console.log({ scheduleData: this.scheduleData });
   },
   provide: {
     schedule: [Day, TimelineViews],
