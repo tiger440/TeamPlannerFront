@@ -1,28 +1,11 @@
 <template>
-  <div class="card-container">
-    <div class="card" v-for="user in users" :key="user.id">
-      <a href="#" class="btn" v-b-modal.modal-prevent-closing>
-        <img class="btn-img" src="..\assets\delete.png" alt="" />
-      </a>
-      <img
-        v-if="user.image != undefined"
-        :src="require(`@/assets/${user.image}.jpeg`)"
-        class="card-img-top"
-        alt="..."
-      />
-      <img v-else src="..\assets\user.png" class="card-img-top-default" alt="" />
-      <div class="card-body">
-        <h5 class="card-title">{{ user.prenom }}</h5>
-        <h5 class="card-title">{{ user.nom }}</h5>
-        <h6 class="card-title">{{ user.poste }}</h6>
-        <h6 class="card-title">{{ user.email }}</h6>
-      </div>
-    </div>
+  <div>
     <div>
+      <b-button v-b-modal.modal-prevent-closing>Open Modal</b-button>
       <b-modal
         id="modal-prevent-closing"
         ref="modal"
-        title="Confirmer la suppression de cet utilisateur ?"
+        title="Submit Your Name"
         @show="resetModal"
         @hidden="resetModal"
         @ok="handleOk"
@@ -30,19 +13,39 @@
         <form ref="form" @submit.stop.prevent="handleSubmit">
           <b-form-group
             :state="nameState"
-            label="entrez l'email de l'utilisateur"
+            label="Name"
             label-for="name-input"
-            invalid-feedback="Email is required"
+            invalid-feedback="Name is required"
           >
             <b-form-input
-              @click="deleteUser()"
               id="name-input"
-              v-model="email"
+              v-model="name"
+              :state="nameState"
               required
             ></b-form-input>
           </b-form-group>
         </form>
       </b-modal>
+    </div>
+    <div class="card-container">
+      <div class="card" v-for="user in users" :key="user.id">
+        <a href="#" class="btn" v-b-modal.modal-prevent-closing>
+          <img class="btn-img" src="..\assets\delete.png" alt="" />
+        </a>
+        <img
+          v-if="user.image != undefined"
+          :src="require(`@/assets/${user.image}.jpeg`)"
+          class="card-img-top"
+          alt="..."
+        />
+        <img v-else src="..\assets\user.png" class="card-img-top-default" alt="" />
+        <div class="card-body">
+          <h5 class="card-title">{{ user.prenom }}</h5>
+          <h5 class="card-title">{{ user.nom }}</h5>
+          <h6 class="card-title">{{ user.poste }}</h6>
+          <h6 class="card-title">{{ user.email }}</h6>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,11 +71,6 @@ export default {
         alert(err);
       });
   },
-  /* methods: {
-    deleteUser: function () {
-      this.axios.post("");
-    },
-  }, */
 };
 </script>
 
@@ -115,5 +113,13 @@ export default {
 
 .btn-img {
   width: 100%;
+}
+
+/*
+MODAL
+*/
+
+.removing-modal {
+  font-family: Montserrat;
 }
 </style>
