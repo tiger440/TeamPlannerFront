@@ -10,7 +10,7 @@
     "dependencies": {
         "@syncfusion/ej2-data": "^18.4.30",
         "@syncfusion/ej2-vue-schedule": "^18.3.42",
-        "axios": "^0.20.0",
+        "axios": "^0.21.1",
         "bootstrap": "^4.5.3",
         "bootstrap-vue": "^2.20.1",
         "chart.js": "^2.9.3",
